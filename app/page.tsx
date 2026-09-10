@@ -56,7 +56,7 @@ export default function Home(){
   return <main className="career-page">
     <header className="nameplate"><strong>DIEGO LOPES</strong><span>Data &amp; AI Engineer</span></header>
     <section className="timeline-shell" aria-label="Diego Lopes career timeline from 2009 to 2026">
-      <div className="years" aria-hidden="true">{years.map(year=><span key={year} style={{left:x(year)}}>{year}</span>)}</div>
+      <div className="years" aria-hidden="true">{years.map(year=><span className={(year-2009)%2===0||year===2026?'is-labelled':''} key={year} style={{left:x(year)}}>{year}</span>)}</div>
       <div className="grid" aria-hidden="true">{years.map(year=><i key={year} style={{left:x(year)}}/>)}</div>
       <section className="route experience-route" aria-label="Professional experience"><div className="route-line"/>
         {experience.map(([start,end,company,role,position],index)=><article className={`experience-stop stop-${index}`} key={`${company}-${start}`} style={{left:x(position)}}><span className="station"/><div><b>{start}{end?` – ${end}`:''}</b><strong>{company}</strong><small>{role}</small></div></article>)}
