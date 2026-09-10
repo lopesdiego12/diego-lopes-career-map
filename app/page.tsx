@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 type Credential = { name: string; year: number; issuer?: string };
 type Provider = { id:string; name:string; year:number; position:number; credentials:Credential[] };
@@ -51,28 +51,26 @@ const x=(year:number)=>`${((year-2009)/17)*100}%`;
 
 export default function Home(){
   const [activeId,setActiveId]=useState<string|null>(null);
-  const closeButtonRef=useRef<HTMLButtonElement>(null);
   const active=useMemo(()=>providers.find(p=>p.id===activeId)??null,[activeId]);
   useEffect(()=>{const close=(e:KeyboardEvent)=>e.key==='Escape'&&setActiveId(null);window.addEventListener('keydown',close);return()=>window.removeEventListener('keydown',close)},[]);
-  useEffect(()=>{if(active)closeButtonRef.current?.focus()},[active]);
   return <main className="career-page">
-    <header className="nameplate"><span>DIEGO LOPES</span></header>
+    <header className="nameplate">DIEGO LOPES</header>
     <section className="timeline-shell" aria-label="Diego Lopes career timeline from 2009 to 2026">
       <div className="years" aria-hidden="true">{years.map(year=><span key={year} style={{left:x(year)}}>{year}</span>)}</div>
       <div className="grid" aria-hidden="true">{years.map(year=><i key={year} style={{left:x(year)}}/>)}</div>
-      <section className="route experience-route" aria-label="Professional experience"><span className="route-label">Experience</span><div className="route-line"/>
+      <section className="route experience-route" aria-label="Professional experience"><div className="route-line"/>
         {experience.map(([start,end,company,role,position],index)=><article className={`experience-stop stop-${index}`} key={`${company}-${start}`} style={{left:x(position)}}><span className="station"/><div><b>{start}{end?` – ${end}`:''}</b><strong>{company}</strong><small>{role}</small></div></article>)}
       </section>
-      <section className="route education-route" aria-label="Education"><span className="route-label">Education</span><div className="route-line"/>
+      <section className="route education-route" aria-label="Education"><div className="route-line"/>
         {education.map(item=><article className="education-stop" key={item.title} style={{left:x(item.start)}}><span className="education-icon" aria-hidden="true">◆</span><div><b>{item.start} – {item.end}</b><strong>{item.title}</strong></div></article>)}
       </section>
-      <section className="route credential-route" aria-label="Certifications and credentials"><span className="route-label">Credentials <em>select a provider</em></span><div className="route-line"/>
-        {providers.map((provider,index)=><button type="button" className={`provider-stop provider-${index} ${activeId===provider.id?'is-active':''}`} key={provider.id} style={{left:x(provider.position)}} onClick={()=>setActiveId(activeId===provider.id?null:provider.id)} aria-expanded={activeId===provider.id} aria-pressed={activeId===provider.id} aria-controls="credential-panel"><span className="credential-icon" aria-hidden="true">▤</span><span className="provider-copy"><strong>{provider.name}</strong><small>{provider.credentials.length} {provider.credentials.length===1?'credential':'credentials'} · {provider.year}</small></span></button>)}
+      <section className="route credential-route" aria-label="Certifications and credentials"><div className="route-line"/>
+        {providers.map((provider,index)=><button type="button" className={`provider-stop provider-${index} ${activeId===provider.id?'is-active':''}`} key={provider.id} style={{left:x(provider.position)}} onClick={()=>setActiveId(provider.id)} aria-expanded={activeId===provider.id} aria-controls="credential-panel"><span className="credential-icon" aria-hidden="true">▤</span><span className="provider-copy"><strong>{provider.name}</strong><small>{provider.credentials.length} {provider.credentials.length===1?'credential':'credentials'}</small></span></button>)}
       </section>
     </section>
     <div className={`drawer-backdrop ${active?'is-open':''}`} onClick={()=>setActiveId(null)} aria-hidden="true"/>
-    <aside id="credential-panel" className={`credential-drawer ${active?'is-open':''}`} role="dialog" aria-modal={active?'true':undefined} aria-live="polite" aria-label={active?`${active.name} certifications`:'Certification details'}>
-      {active&&<><div className="drawer-accent" aria-hidden="true"/><div className="drawer-head"><div><span className="drawer-kicker">Credential station · {active.year}</span><h2>{active.name}</h2><p><strong>{active.credentials.length}</strong> {active.credentials.length===1?'credential':'credentials'} in this collection</p></div><button ref={closeButtonRef} type="button" className="close-button" onClick={()=>setActiveId(null)} aria-label="Close certification details">×</button></div>
+    <aside id="credential-panel" className={`credential-drawer ${active?'is-open':''}`} aria-live="polite" aria-label={active?`${active.name} certifications`:'Certification details'}>
+      {active&&<><div className="drawer-head"><div><span className="drawer-kicker">Credential station · {active.year}</span><h2>{active.name}</h2><p>{active.credentials.length} {active.credentials.length===1?'credential':'credentials'}</p></div><button type="button" className="close-button" onClick={()=>setActiveId(null)} aria-label="Close certification details">×</button></div>
       <ol className="credential-list">{active.credentials.map((credential,index)=><li key={`${credential.name}-${index}`}><span>{String(index+1).padStart(2,'0')}</span><div><strong>{credential.name}</strong>{credential.issuer&&<small>{credential.issuer}</small>}</div><time>{credential.year}</time></li>)}</ol></>}
     </aside>
   </main>
