@@ -68,6 +68,11 @@ export default function Home(){
         {providers.map((provider,index)=><button type="button" className={`provider-stop provider-${index} ${activeId===provider.id?'is-active':''}`} key={provider.id} style={{left:x(provider.position)}} onClick={()=>setActiveId(provider.id)} aria-expanded={activeId===provider.id} aria-controls="credential-panel"><span className="credential-icon" aria-hidden="true">▤</span><span className="provider-copy"><strong>{provider.name}</strong><small>{provider.credentials.length} {provider.credentials.length===1?'credential':'credentials'}</small></span></button>)}
       </section>
     </section>
+    <section className="career-stats" aria-label="Career totals">
+      <div className="career-stat certification-stat"><strong>52</strong><span>Tech certifications</span></div>
+      <div className="career-stat experience-stat"><strong>10</strong><span>Professional experiences</span></div>
+      <div className="career-stat years-stat"><strong>15</strong><span>Years in IT-related roles</span></div>
+    </section>
     <div className={`drawer-backdrop ${active?'is-open':''}`} onClick={()=>setActiveId(null)} aria-hidden="true"/>
     <aside id="credential-panel" className={`credential-drawer ${active?'is-open':''}`} aria-live="polite" aria-label={active?`${active.name} certifications`:'Certification details'}>
       {active&&<><div className="drawer-head"><div><span className="drawer-kicker">Credential station · {active.year}</span><h2>{active.name}</h2><p>{active.credentials.length} {active.credentials.length===1?'credential':'credentials'}</p></div><button type="button" className="close-button" onClick={()=>setActiveId(null)} aria-label="Close certification details">×</button></div>
