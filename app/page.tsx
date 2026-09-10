@@ -10,7 +10,7 @@ const experience = [
   [2012,2016,'HSBC Global Technology','IT Support Analyst',2012],
   [2016,2018,'Bradesco Bank','Business Intelligence Analyst',2016],
   [2019,null,'Compwire','Big Data Analyst',2019],
-  [2019,2020,'Paraná Banco','Data Engineer',2020.3],
+  [2019,2020,'Parana Bank','Data Engineer',2020.3],
   [2020,2021,'Datasprints','Data Engineer / Tech Lead',2021.6],
   [2021,2023,'Americanas','Data Analytics Manager',2022.9],
   [2023,2026,'Capgemini','Data & AI Solution Engineer',2025.55],
