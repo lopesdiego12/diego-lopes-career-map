@@ -37,13 +37,13 @@ const providers:Provider[] = [
   { id:'leadership',name:'Leadership & Strategy',year:2022,position:2021.5,credentials:[
     {name:'Connected Manager',year:2022,issuer:'Harvard Business School'},{name:'Strategic Foresight',year:2022,issuer:'FGV'},{name:'Become an AI-Powered People Manager',year:2022,issuer:'Microsoft'},
   ]},
-  { id:'databricks',name:'Databricks',year:2025,position:2022.95,credentials:[
+  { id:'dbt',name:'dbt Labs',year:2026,position:2022.95,credentials:[{name:'DBT Fundamentals',year:2026}] },
+  { id:'databricks',name:'Databricks',year:2025,position:2024.4,credentials:[
     {name:'Azure Databricks Platform Architect',year:2025},{name:'AI Security Fundamentals',year:2025},{name:'Advantages of Expanding EDW with Data Intelligence',year:2025},{name:'Cloud Native SPARK Migration (Verified)',year:2025},{name:'Spark Migration',year:2025},{name:'Data & AI Governance with Unity Catalog (Verified)',year:2025},{name:'Generative AI Fundamentals',year:2025},{name:'Gen AI & LLM on Databricks',year:2025},{name:'Gen AI & LLM on Databricks (Verified)',year:2025},{name:'Advantages of Azure Databricks & Microsoft Fabric',year:2025},{name:'Energy Industry Specialization for Gen AI & LLM',year:2025},{name:'Advantages of Gen AI with Data Intelligence',year:2025},{name:'Advantages of Being GTM Ready and the Art of the Possible',year:2025},{name:'Advantages of Data Intelligence & Interoperability with SAP',year:2025},{name:'2025 Data + AI Summit Product Announcement Enablement for Partners',year:2025},
   ]},
-  { id:'openai',name:'OpenAI',year:2026,position:2024.4,credentials:[
+  { id:'openai',name:'OpenAI',year:2026,position:2025.85,credentials:[
     {name:'OpenAI Foundational',year:2026},{name:'ChatGPT Technical Practitioner',year:2026},{name:'Codex Deployment Practitioner',year:2026},{name:'AI Technical Practitioner',year:2026},
   ]},
-  { id:'dbt',name:'dbt Labs',year:2026,position:2025.85,credentials:[{name:'DBT Fundamentals',year:2026}] },
 ];
 
 const years=Array.from({length:18},(_,i)=>2009+i);
