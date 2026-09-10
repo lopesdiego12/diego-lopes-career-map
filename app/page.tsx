@@ -54,7 +54,7 @@ export default function Home(){
   const active=useMemo(()=>providers.find(p=>p.id===activeId)??null,[activeId]);
   useEffect(()=>{const close=(e:KeyboardEvent)=>e.key==='Escape'&&setActiveId(null);window.addEventListener('keydown',close);return()=>window.removeEventListener('keydown',close)},[]);
   return <main className="career-page">
-    <header className="nameplate">DIEGO LOPES</header>
+    <header className="nameplate"><strong>DIEGO LOPES</strong><span>Data &amp; AI Engineer</span></header>
     <section className="timeline-shell" aria-label="Diego Lopes career timeline from 2009 to 2026">
       <div className="years" aria-hidden="true">{years.map(year=><span key={year} style={{left:x(year)}}>{year}</span>)}</div>
       <div className="grid" aria-hidden="true">{years.map(year=><i key={year} style={{left:x(year)}}/>)}</div>

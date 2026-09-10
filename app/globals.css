@@ -5,7 +5,9 @@
 html,body{margin:0;min-height:100%;background:#fff;color:var(--navy);font-family:Arial,Helvetica,sans-serif}
 button{font:inherit}
 .career-page{min-height:100vh;background:#fff;overflow:hidden;position:relative}
-.nameplate{height:96px;display:flex;align-items:center;justify-content:center;font-size:clamp(34px,4.6vw,64px);font-weight:900;letter-spacing:-.055em}
+.nameplate{height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.nameplate strong{font-size:clamp(34px,4.6vw,60px);font-weight:900;line-height:.92;letter-spacing:-.055em}
+.nameplate span{margin-top:10px;color:#5d6b7e;font-size:11px;font-weight:700;line-height:1;letter-spacing:.19em;text-transform:uppercase}
 .timeline-shell{position:relative;width:1680px;height:calc(100vh - 96px);min-height:790px;margin:0 auto;padding:0 54px 42px 92px}
 .years{position:absolute;left:92px;right:54px;top:18px;height:32px}
 .years span{position:absolute;transform:translateX(-50%);color:#6c7686;font-size:14px;font-variant-numeric:tabular-nums}
@@ -63,6 +65,6 @@ button{font:inherit}
 .credential-list li>span,.credential-list time{color:#8a95a5;font-size:11px;font-variant-numeric:tabular-nums}
 .credential-list strong{display:block;font-size:13px;line-height:1.35}
 .credential-list small{display:block;margin-top:5px;color:var(--muted);font-size:11px}
-@media(max-width:1680px){.career-page{overflow-x:auto}.nameplate{position:sticky;left:0;width:1680px;justify-content:flex-start;padding-left:690px}}
+@media(max-width:1680px){.career-page{overflow-x:auto}.nameplate{position:sticky;left:0;width:100vw;padding-left:0}}
 @media(max-width:600px){.career-stats{width:calc(100vw - 24px);padding:7px 0}.career-stat{gap:6px;padding:0 9px}.career-stat strong{font-size:27px}.career-stat span{font-size:8px}.credential-drawer{top:auto;bottom:0;width:100%;height:min(72vh,650px);transform:translateY(105%);border-radius:20px 20px 0 0;padding:26px 22px 34px}.credential-drawer.is-open{transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.credential-drawer,.drawer-backdrop,.credential-icon{transition:none}}
