@@ -31,7 +31,7 @@ button{font:inherit}
 .experience-stop small{margin-top:3px;color:#2d4160;font-size:10px;line-height:1.15}
 .education-stop{width:clamp(190px,15.5vw,260px)}
 .education-icon{position:absolute;left:50%;top:0;display:grid;place-items:center;width:50px;height:50px;border-radius:50%;color:#fff;background:var(--blue);border:5px solid #fff;box-shadow:0 2px 13px #0a65d54a;font-size:17px;transform:translate(-50%,-50%)}
-.education-stop div{position:absolute;left:calc(50% + 34px);top:0;width:clamp(165px,13.1vw,220px);display:flex;flex-direction:column;transform:translateY(-50%);padding:10px 14px;border-radius:7px;background:linear-gradient(90deg,#edf5ff,rgba(237,245,255,.25))}
+.education-stop div{position:absolute;left:calc(50% + 34px);bottom:34px;width:clamp(165px,13.1vw,220px);display:flex;flex-direction:column;padding:10px 14px;border-radius:7px;background:linear-gradient(90deg,#edf5ff,rgba(237,245,255,.72) 72%,rgba(255,255,255,.2))}
 .education-stop b{color:var(--blue);font-size:12px}
 .education-stop strong{margin-top:4px;color:#17365f;font-size:12px;line-height:1.22}
 .provider-stop{width:clamp(112px,9.75vw,164px);padding:0;border:0;background:transparent;color:var(--navy);text-align:center;cursor:pointer}
